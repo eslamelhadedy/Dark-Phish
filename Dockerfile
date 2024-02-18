@@ -9,4 +9,4 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y libgdal-dev gcc g
 RUN apt-get update && apt install python3 curl php git openssh nodejs npm -y
 RUN pip install requests wget pyshorteners
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "8080", "helper.asgi:application"]
+CMD ["python", "dark-phish.py"]
