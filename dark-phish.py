@@ -24,7 +24,7 @@ except ModuleNotFoundError as error:
 
 
 version = 2.2
-host = "127.0.0.1"
+host = "0.0.0.0"
 port = "8080"
 
 
@@ -444,7 +444,7 @@ print("""
 
 while True:
 	try:
-		option=input("\nOPTION: ").lower()
+		option=12
 		if option == "custom":
 			break
 		else:
@@ -474,7 +474,7 @@ print("""\n
 Tunnels = 6          
 while True:
 	try:
-		tunnel = input("\nOPTION: ")
+		tunnel = 1
 		tunnel = int(tunnel)
 		if (tunnel > Tunnels):
 			print("\033[1;91m[!] Invalid option!\033[0;0m\n")
@@ -782,7 +782,7 @@ sleep 12""".format(host, port))
 	
 	if (len(link) > 0):
 		try:
-			condition = input("\nModify the URL (Y/N): ").lower()
+			condition = n
 			print("")
 		except:
 			pass
