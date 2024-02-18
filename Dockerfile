@@ -10,5 +10,5 @@ WORKDIR /app/
 RUN ls
 RUN pwd
 RUN pip install requests wget pyshorteners
-
-CMD ["python", "dark-phish.py"]
+RUN export TERM=xterm
+CMD ["python3", "dark-phish.py"]
