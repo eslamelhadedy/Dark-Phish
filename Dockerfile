@@ -7,6 +7,8 @@ RUN pip install --upgrade pip
 
 ADD . /app
 WORKDIR /app/
+RUN ls
+RUN pwd
 RUN pip install requests wget pyshorteners
 
 CMD ["python", "dark-phish.py"]
