@@ -5,9 +5,8 @@
 FROM python:3.10.6
 RUN pip install --upgrade pip
 
-RUN cd /workspace/Dark-Phish
-RUN ls
-RUN pwd
+ADD . /app
+WORKDIR /app/
 RUN pip install requests wget pyshorteners
 
 CMD ["python", "dark-phish.py"]
