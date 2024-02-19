@@ -782,7 +782,7 @@ sleep 12""".format(host, port))
 	
 	if (len(link) > 0):
 		try:
-			condition = n
+			condition = "n"
 			print("")
 		except:
 			pass
