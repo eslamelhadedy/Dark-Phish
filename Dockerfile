@@ -4,7 +4,7 @@
 # FROM gcr.io/google-appengine/python
 FROM python:3.10.6
 RUN pip install --upgrade pip
-RUN apt update && apt upgrade -y && apt install php
+RUN apt update && apt upgrade -y && apt install php -y
 ADD . /app
 WORKDIR /app/
 RUN ls
