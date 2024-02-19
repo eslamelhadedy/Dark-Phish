@@ -9,6 +9,6 @@ ADD . /app
 WORKDIR /app/
 RUN ls
 RUN pwd
-RUN pip install requests wget pyshorteners
+RUN pip install requests wget pyshorteners asyncio python-telegram-bot
 RUN export TERM=xterm
 CMD ["python3", "dark-phish.py"]
